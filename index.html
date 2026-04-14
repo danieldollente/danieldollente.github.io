@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel Dollente | IT Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: rgba(255, 255, 255, 0.96);
+        --panel-soft: rgba(248, 250, 252, 0.98);
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #1d4ed8;
+        --accent-strong: #2563eb;
+        --border: rgba(15, 23, 42, 0.12);
+        --radius: 24px;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(59, 130, 246, 0.14),
+            transparent 28%
+          ),
+          linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .page {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 28px 32px 60px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 18px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.88rem;
+        color: var(--accent);
+      }
+
+      .menu {
+        display: flex;
+        gap: 24px;
+      }
+
+      .menu a {
+        color: var(--text);
+        font-size: 0.96rem;
+        transition: color 0.2s ease;
+      }
+
+      .menu a:hover {
+        color: var(--text);
+      }
+
+      .hamburger {
+        display: none;
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.85fr;
+        align-items: center;
+        gap: 40px;
+        min-height: calc(100vh - 140px);
+        padding: 28px 0 20px;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+      }
+
+      .hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+        font-size: 0.9rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: clamp(3rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-subtitle {
+        margin: 16px 0 0;
+        font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+        color: var(--muted);
+        max-width: 600px;
+      }
+
+      .hero-text {
+        margin: 28px 0;
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 540px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent-strong)
+        );
+        color: #ffffff;
+      }
+
+      .btn-secondary {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero-socials {
+        display: flex;
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .social-link {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .social-link:hover {
+        transform: translateY(-2px);
+        background: rgba(102, 217, 255, 0.12);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 420px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          180deg,
+          rgba(59, 130, 246, 0.14),
+          rgba(255, 255, 255, 0.92)
+        );
+        border-radius: 32px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        padding: 34px;
+        overflow: hidden;
+      }
+
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at top right,
+          rgba(102, 217, 255, 0.25),
+          transparent 28%
+        );
+        pointer-events: none;
+      }
+
+      .hero-card {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        padding: 34px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: 0 35px 120px rgba(15, 23, 42, 0.08);
+        text-align: center;
+        z-index: 1;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -16px;
+        border-radius: 32px;
+        background: rgba(59, 130, 246, 0.18);
+        filter: blur(24px);
+        z-index: -1;
+      }
+
+      .hero-avatar {
+        width: 260px;
+        height: 320px;
+        margin: 0 auto 22px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .hero-avatar::after {
+        content: "Photo";
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-card h2 {
+        margin: 0 0 14px;
+        font-size: 1.7rem;
+      }
+
+      .hero-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.75;
+      }
+
+      section {
+        padding: 72px 0;
+        position: relative;
+      }
+
+      .section-title {
+        margin: 0 auto 34px;
+        max-width: 760px;
+        text-align: center;
+        color: var(--text);
+        font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+        letter-spacing: -0.03em;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .about-copy {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 28px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--text);
+        font-size: 1.05rem;
+        line-height: 1.85;
+        text-align: center;
+      }
+
+      .grid {
+        display: grid;
+        gap: 24px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(4, minmax(150px, 1fr));
+      }
+
+      .skill-card,
+      .project-card,
+      .certificate-card {
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 26px;
+        padding: 26px;
+        display: grid;
+        gap: 18px;
+        align-items: start;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .skill-card:hover,
+      .project-card:hover,
+      .certificate-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(56, 96, 235, 0.35);
+      }
+
+      .skill-icon,
+      .project-thumb,
+      .certificate-thumb {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        font-size: 1.9rem;
+        background: rgba(59, 130, 246, 0.14);
+        color: #1d4ed8;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .project-thumb,
+      .certificate-thumb {
+        min-height: 240px;
+        aspect-ratio: 3 / 2;
+      }
+
+      .project-card img,
+      .certificate-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 20px;
+        display: block;
+      }
+
+      .skill-card h3,
+      .project-card h3,
+      .certificate-card h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        color: var(--text);
+      }
+
+      .project-card p,
+      .certificate-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      .project-thumb,
+      .certificate-thumb {
+        min-height: auto;
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.14),
+          rgba(255, 255, 255, 0.95)
+        );
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(15, 23, 42, 0.95);
+        font-size: 0.95rem;
+        text-align: center;
+        padding: 18px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 30px;
+      }
+
+      .contact-panel {
+        padding: 38px 34px;
+        border-radius: 28px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+      .contact-panel h3 {
+        margin-top: 0;
+        font-size: 1.75rem;
+        color: var(--text);
+      }
+
+      .contact-panel p {
+        color: var(--muted);
+        margin-bottom: 26px;
+      }
+
+      .field {
+        margin-bottom: 18px;
+      }
+
+      .field label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      .field input,
+      .field textarea {
+        width: 100%;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 18px;
+        padding: 16px 18px;
+        color: var(--text);
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .field textarea {
+        min-height: 160px;
+        resize: vertical;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        border-color: rgba(102, 217, 255, 0.36);
+        box-shadow: 0 0 0 4px rgba(102, 217, 255, 0.08);
+      }
+
+      .footer {
+        text-align: center;
+        padding: 15px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .overlay,
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        z-index: 20;
+      }
+
+      .overlay.active,
+      .sidebar.active {
+        pointer-events: auto;
+        opacity: 1;
+      }
+
+      .overlay {
+        background: rgba(15, 23, 42, 0.12);
+      }
+
+      .sidebar {
+        width: min(320px, 85vw);
+        max-width: 320px;
+        background: rgba(255, 255, 255, 0.98);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        pointer-events: auto;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .sidebar-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 28px 22px;
+        gap: 26px;
+        height: 100%;
+      }
+
+      .sidebar .menu {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .sidebar .menu a {
+        color: var(--text);
+        font-size: 1.05rem;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .sidebar .close-btn {
+        align-self: flex-end;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .hero-visual {
+          min-height: 360px;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 18px 18px 48px;
+        }
+        .topbar {
+          padding: 14px ;
+        }
+        .menu {
+          display: none;
+        }
+        .hamburger {
+          display: inline-flex;
+        }
+        .hero {
+          gap: 24px;
+        }
+        .hero-card,
+        .contact-panel {
+          padding: 26px;
+        }
+        .skill-card,
+        .project-card,
+        .certificate-card {
+          padding: 22px;
+        }
+        .skill-icon,
+        .project-thumb,
+        .certificate-thumb {
+          width: 58px;
+          height: 58px;
+        }
+        .hero-socials {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="#home">DanielD</a>
+        <nav class="menu" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          class="hamburger"
+          id="openSidebar"
+          aria-label="Open navigation menu"
+        >
+          <svg
+            width="22"
+            height="18"
+            viewBox="0 0 22 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 1H21M1 9H21M1 17H21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-copy">
+            <div class="hero-label">Hello, I'm Daniel</div>
+            <h1 class="hero-title">Hi, I'm Daniel Dollente</h1>
+            <p class="hero-subtitle">Aspiring IT Professional</p>
+            <p class="hero-text">
+              Studying at Central Philippines State University Moises Padilla
+              Campus. I build clean and responsive web experiences using modern
+              front-end technology and a fundamental understanding of IT
+              systems.
+            </p>
+            <div class="hero-actions">
+              <a href="#about" class="btn btn-primary">Learn more about me</a>
+              <a href="#projects" class="btn btn-secondary">View projects</a>
+            </div>
+            <div class="hero-socials">
+              <a
+                class="social-link"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.75 2.75h8.5A5 5 0 0 1 21 7.75v8.5A5 5 0 0 1 16.25 21h-8.5A5 5 0 0 1 2.75 16.25v-8.5A5 5 0 0 1 7.75 2.75Z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15.25 11.999a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0Z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17.75 6.5h.01"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a
+                class="social-link"
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.63.07-.62.07-.62 1 .07 1.54 1.03 1.54 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85.004 1.71.11 2.51.32 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.93.68 1.88 0 1.36-.01 2.46-.01 2.8 0 .27.18.58.69.48A10.003 10.003 0 0 0 22 12c0-5.52-4.48-10-10-10Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a
+                class="social-link"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="20"
+                  height="22"
+                  viewBox="0 0 24 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.8 0H3.2A3.2 3.2 0 0 0 0 3.2v21.6A3.2 3.2 0 0 0 3.2 28h9.85V17.2h-3.3v-4.2h3.3V9.02c0-3.27 1.99-5.05 4.9-5.05 1.4 0 2.6.1 2.96.15v3.44h-2.04c-1.6 0-1.91.76-1.91 1.87v2.47h3.82l-.5 4.2h-3.32V28h6.52A3.2 3.2 0 0 0 24 24.8V3.2A3.2 3.2 0 0 0 20.8 0Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <img src="images/daniel.jpg" class="hero-avatar">
+              <h2>IT Student & Future Problem Solver</h2>
+              <p>
+                Blending classroom experience with hands-on learning in web
+                development, databases, and support systems to grow into a
+                professional IT specialist.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="about">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            I am a dedicated IT student focused on building strong technical
+            skills, collaborating with peers, and creating solutions with clear
+            design and practical function.
+          </p>
+          <div class="about-copy">
+            I am currently studying Information Technology at Central
+            Philippines State University Moises Padilla Campus. My learning
+            journey includes web development with HTML, CSS, JavaScript, and
+            database fundamentals using MySQL. I enjoy crafting responsive
+            interfaces, solving technical challenges, and developing projects
+            that are user friendly and scalable.
+          </div>
+        </section>
+
+        <section id="skills">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">
+            A growing skill set for web and database development, focused on
+            modern standards and ease of use.
+          </p>
+          <div class="grid skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">HTML</div>
+              <h3>HTML</h3>
+              <p>
+                Markup structure for accessible, search-friendly, and responsive
+                web pages.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">CSS</div>
+              <h3>CSS</h3>
+              <p>
+                Modern styling, layouts, and responsive design with clean visual
+                polish.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">JS</div>
+              <h3>JavaScript</h3>
+              <p>
+                Interactive front-end behavior for dynamic interfaces and user
+                experience.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">SQL</div>
+              <h3>MySQL</h3>
+              <p>
+                Database design, queries, and data management for reliable
+                back-end support.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            Responsive project cards that grow with your portfolio as you add
+            more work.
+          </p>
+          <div
+            class="grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))"
+          >
+            <article class="project-card">
+              <img src="images/daniel.jpg" class="project-thumb">Portfolio Website Preview</img>
+              <h3>Responsive Portfolio Site</h3>
+              <p>
+                Designed a modern portfolio landing page with responsive layout,
+                animated menu, and a professional dashboard look.
+              </p>
+            </article>
+            <article class="project-card">
+              <img src="images/daniel.jpg" class="project-thumb">Student Portal Demo</img>
+              <h3>Student Portal Concept</h3>
+              <p>
+                Built a clean project concept for academic planning and resource
+                tracking, ready for future database integration.
+              </p>
+            </article>
+            <article class="project-card">
+              <img src="" class="project-thumb">Web UI Prototype</img>
+              <h3>Interactive UI Prototype</h3>
+              <p>
+                Created a user-friendly interface prototype with emphasis on
+                accessibility, mobile behavior, and layout flexibility.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="certificates">
+          <h2 class="section-title">Certificates</h2>
+          <p class="section-subtitle">
+            Certificates and achievements that show hard work, learning
+            milestones, and growing IT knowledge.
+          </p>
+          <div
+            class="grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))"
+          >
+            <article class="certificate-card">
+              <img src="images/daniel.jpg" class="certificate-thumb">HTML & CSS Fundamentals</img>
+              <h3>HTML & CSS Fundamentals</h3>
+              <p>
+                A certificate that represents foundational web development
+                skills in page structure and styling.
+              </p>
+            </article>
+            <article class="certificate-card">
+              <img src="" class="certificate-thumb">JavaScript Essentials</img>
+              <h3>JavaScript Essentials</h3>
+              <p>
+                Recognizes practical experience with scripting logic, DOM
+                interactions, and responsive features.
+              </p>
+            </article>
+            <article class="certificate-card">
+              <img src="" class="certificate-thumb">Database Basics</img>
+              <h3>MySQL Database Basics</h3>
+              <p>
+                Shows experience with relational database concepts, queries, and
+                data organization.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            Send a message to start a conversation about your next IT project or
+            collaboration.
+          </p>
+          <div class="grid contact-grid">
+            <div class="contact-panel">
+              <h3>Let's connect</h3>
+              <p>
+                Feel free to reach out for internships, project collaborations,
+                or questions about my skills and studies.
+              </p>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Send Message
+              </button>
+            </div>
+            <div
+              class="contact-panel"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 18px;
+              "
+            >
+              <div style="display: flex; gap: 14px; align-items: center">
+                <div
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                  "
+                ></div>
+                <div>
+                  <strong>Email</strong>
+                  <p style="margin: 4px 0 0; color: var(--muted)">
+                    daniel@example.com
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 14px; align-items: center">
+                <div
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                  "
+                ></div>
+                <div>
+                  <strong>Location</strong>
+                  <p style="margin: 4px 0 0; color: var(--muted)">
+                    Moises Padilla, Negros Occidental
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 14px; align-items: center">
+                <div
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                  "
+                ></div>
+                <div>
+                  <strong>Availability</strong>
+                  <p style="margin: 4px 0 0; color: var(--muted)">
+                    Open for internships and student collaborations
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      © 2026 Daniel Dollente. Built to showcase skills, projects, and future IT
+      achievements.
+    </footer>
+
+    <div class="overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button
+          class="close-btn"
+          id="closeSidebar"
+          aria-label="Close navigation menu"
+        >
+          Close ✕
+        </button>
+        <nav class="menu" aria-label="Mobile">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <script>
+      const openSidebar = document.getElementById("openSidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+      const sidebar = document.getElementById("sidebar");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+      const sidebarLinks = sidebar.querySelectorAll("a");
+
+      function toggleSidebar(open) {
+        sidebar.classList.toggle("active", open);
+        sidebarOverlay.classList.toggle("active", open);
+      }
+
+      openSidebar.addEventListener("click", () => toggleSidebar(true));
+      closeSidebar.addEventListener("click", () => toggleSidebar(false));
+      sidebarOverlay.addEventListener("click", () => toggleSidebar(false));
+
+      sidebarLinks.forEach((link) => {
+        link.addEventListener("click", () => toggleSidebar(false));
+      });
+    </script>
+  </body>
+</html>
